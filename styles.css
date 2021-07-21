@@ -257,6 +257,8 @@ input, textarea {
     cursor: pointer;
     font-weight: 600;
     font-size: 19px;
+    transition-property: background-color, color;
+    transition-duration: .7s;
 }
 
 #boton:hover {
