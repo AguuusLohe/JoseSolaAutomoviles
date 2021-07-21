@@ -1,103 +1,19 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "aguslohe1@gmail.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $name = $_POST['name'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $name . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $name. "\n\n" . $_POST['message'];
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/styles.css">
-    <link rel="shortcut icon" href="iconos/coche.png" type="image/x-icon">
-    <script src="JavaScript/script.js"></script>
-    <title>JOSÉ SOLA</title>
-</head>
-<body>
-            <!-- ================ NAV BAR ================== -->
-<?php
-$myemail = 'aguslohe1@gmail.com';
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-
-$to = $myemail;
-$email_subject = "Nuevo mensaje: $subject";
-$email_body = "Haz recibido un nuevo mensaje. \n Nombre: $name \n Correo: $email \n Mensaje: \n $message";
-$headers = "From: $email";
-
-mail($to, $email_subject, $email_body, $headers);
-echo "El mensaje se ha enviado correctamente";
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    // You cannot use header and echo together. It's one or the other.
+    }
 ?>
-
-
-    <header class="header">
-        <nav class="nav">
-            <div class="nav_logo">
-                <a href="#" class="link nav_logo_items">
-                    <h1 class="nav_logo_link">JOSÉ SOLA</h1>
-                    <p class="nav_logo_link">AUTOMÓVILES</p>
-                </a>
-            </div>
-
-            <ul class="nav_menu">
-                <li class="nav_menu_item"><a href="#" class="nav_link link">Inicio</a></li>
-                <li class="nav_menu_item"><a href="#posts" class="nav_link link">Publicaciones</a></li>
-                <li class="nav_menu_item"><a href="#contact" class="nav_link link">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-            <!-- ================ END  NAV BAR ================== -->
-
-            <!-- ================ "INICIO" CONTENT ================== -->
-
-    <main class="main_container" id="inicio">
-        <section class="main_content">
-            <div class="main_content_left main_box_content">
-                <a target="_blanck" href="https://www.facebook.com/Jos%C3%A9-Sola-Automoviles-323052394787434/"><img title="Proyecto de arquitectura" class="content_image" src="https://cdn.pixabay.com/photo/2016/11/24/20/30/architecture-1857175_960_720.jpg" alt="foto de una lapicera dibujado un proyecto de arquitectura" ></a>
-                <h1 id="title" >Comienzos</h1>
-                <p class="content_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa esse deleniti, dolorem illo amet ad voluptatum neque expedita explicabo repellendus! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam molestias laudantium iure ipsum eaque pariatur aliquam eum dolore nemo sunt velit architecto veniam, cum laborum voluptatum ad dolor rem? Perspiciatis itaque error quis temporibus est ut distinctio impedit possimus aliquid sunt nulla tempore, quibusdam dicta voluptatem ratione beatae! Rem, dolor.</p>
-            </div>
-
-            <div class="main_content_right main_box_content">
-                <a target="_blanck" href="https://www.facebook.com/Jos%C3%A9-Sola-Automoviles-323052394787434/"><img class="content_image" title="JOSÉ SOLA hoy en día" src="https://scontent.ftuc1-2.fna.fbcdn.net/v/t1.6435-9/p720x720/52595978_586669271759077_7499963104495665152_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=e3f864&_nc_ohc=BI1NdB0GWO0AX-rnTIG&_nc_ht=scontent.ftuc1-2.fna&oh=09fe32bfcac746cc37c25e6a326d5ac4&oe=60FDBCA3" alt="foto actual de José sola automoviles" ></a>
-                <h1 id="title" >Presente</h1>
-                <p class="content_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita explicabo, odio facilis nisi, incidunt libero consectetur ullam, adipisci commodi nobis odit! Adipisci vitae esse reiciendis consequuntur porro possimus consectetur vero asperiores reprehenderit, amet voluptates eum animi hic quisquam eius quos, enim molestiae voluptatibus. Animi, expedita eveniet dignissimos quas nostrum nobis!</p>
-            </div>
-        </section>
-    </main>
-            <!-- ================ END "INICIO" CONTENT ================== -->
-
-            <!-- ================ POST SECTION ================== -->
-            
-    <Section  class="posts" id="posts">
-        <div class="posts_container">
-            <h1 id="title">Publicaciones de Facebook</h1>
-            <span>
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1028293460929987%26id%3D323052394787434&show_text=true&width=500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="fullscreen; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1028291180930215%26id%3D323052394787434&show_text=true&width=500"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </span>
-            <span>
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D1028286640930669%26id%3D323052394787434&show_text=true&width=500"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D976892909403376%26id%3D323052394787434&show_text=true&width=500"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </span>
-        </div>
-    </Section>
-
-            
-            <!-- ================ END POST SECTION ================== -->
-
-            <!-- ================ FOOTER  ================== -->
-        
-    <section class="contact" id="contact">
-        <div class="contact_form">
-            <form action="enviar.php" method="post" >
-            <input type="text" name="name" placeholder="NOMBRE" id="nombre" required>
-            <input type="email" name="email" placeholder="CORREO" required>
-            <textarea name="text" name="message" placeholder="MENSAJE/DUDA" minlength="10" required></textarea>
-            <input type="submit" value="ENVIAR" id="boton">
-            </form>
-        </div>
-    </section>
-        
-            <!-- ================ END FOOTER ================== -->
-</body>
-</html>
