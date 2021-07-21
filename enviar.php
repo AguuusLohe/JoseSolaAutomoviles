@@ -20,7 +20,7 @@ $message = $_POST['message'];
 
 $to = $myemail;
 $email_subject = "Nuevo mensaje: $subject";
-$email_body = "Haz recibido un nuevo mensaje. \n Nombre: $name \n Correo: $email \n Mnesaje: \n $message";
+$email_body = "Haz recibido un nuevo mensaje. \n Nombre: $name \n Correo: $email \n Mensaje: \n $message";
 $headers = "From: $email";
 
 mail($to, $email_subject, $email_body, $headers);
