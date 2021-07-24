@@ -207,9 +207,6 @@ iframe {
     border-radius: 15px;
     box-shadow: 4px 5px 20px 0px black;
 }
-iframe:hover {
-    cursor: pointer;
-}
 
   /* ================ END POSTS SECTION ================== */
 
